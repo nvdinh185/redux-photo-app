@@ -16,9 +16,10 @@ const Photo = React.lazy(() => import('./features/Photo'));
 
 // Configure Firebase.
 const config = {
-  apiKey: process.env.REACT_APP_FIREBASE_API,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  apiKey: "AIzaSyDOCAbC123dEf456GhI789jKl01-MnO",
+  authDomain: "myapp-project-123.firebaseapp.com"
 };
+
 firebase.initializeApp(config);
 
 function App() {
@@ -41,31 +42,31 @@ function App() {
       }
     }
 
-    fetchProductList();
+    // fetchProductList();
   }, []);
 
   // Handle firebase auth changed
   useEffect(() => {
-    const unregisterAuthObserver = firebase.auth().onAuthStateChanged(async (user) => {
-      if (!user) {
-        // user logs out, handle something here
-        console.log('User is not logged in');
-        return;
-      }
+    // const unregisterAuthObserver = firebase.auth().onAuthStateChanged(async (user) => {
+    //   if (!user) {
+    //     // user logs out, handle something here
+    //     console.log('User is not logged in');
+    //     return;
+    //   }
 
-      // Get me when signed in
-      // const action = getMe();
-      try {
-        const actionResult = await dispatch(getMe());
-        const currentUser = unwrapResult(actionResult);
-        console.log('Logged in user: ', currentUser);
-      } catch (error) {
-        console.log('Failed to login ', error.message);
-        // show toast error
-      }
-    });
+    //   // Get me when signed in
+    //   // const action = getMe();
+    //   try {
+    //     const actionResult = await dispatch(getMe());
+    //     const currentUser = unwrapResult(actionResult);
+    //     console.log('Logged in user: ', currentUser);
+    //   } catch (error) {
+    //     console.log('Failed to login ', error.message);
+    //     // show toast error
+    //   }
+    // });
 
-    return () => unregisterAuthObserver();
+    // return () => unregisterAuthObserver();
   }, []);
 
   const handleButtonClick = async () => {
