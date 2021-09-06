@@ -24,11 +24,12 @@ const getRandomImageUrl = () => {
 
 function RandomPhoto(props) {
   const { name, imageUrl, onImageUrlChange, onRandomButtonBlur } = props;
+  console.log("imageUrl: ", imageUrl);
 
   const handleRandomPhotoClick = async () => {
     if (onImageUrlChange) {
       const randomImageUrl = getRandomImageUrl();
-      onImageUrlChange(randomImageUrl)
+      onImageUrlChange(randomImageUrl);
     }
   }
 

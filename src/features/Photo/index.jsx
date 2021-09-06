@@ -6,7 +6,7 @@ import MainPage from './pages/Main';
 
 Photo.propTypes = {};
 
-function Photo(props) {
+function Photo() {
   const match = useRouteMatch();
   console.log({ match });
 

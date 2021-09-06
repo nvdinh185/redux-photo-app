@@ -52,7 +52,7 @@ function AddEditPage(props) {
 
         history.push('/photos');
         resolve(true);
-      }, 2000);
+      }, 5000);
     });
   }
 

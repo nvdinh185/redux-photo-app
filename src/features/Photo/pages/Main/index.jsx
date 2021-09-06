@@ -9,7 +9,7 @@ import { Container } from 'reactstrap';
 
 MainPage.propTypes = {};
 
-function MainPage(props) {
+function MainPage() {
   const dispatch = useDispatch();
   const photos = useSelector(state => state.photos);
   const history = useHistory();
