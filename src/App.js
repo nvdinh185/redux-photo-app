@@ -16,10 +16,12 @@ const Photo = React.lazy(() => import('./features/Photo'));
 
 // Configure Firebase.
 const config = {
-  apiKey: "AIzaSyB3FtOQKw_OKjif72Qla2IsG9nek1O71PI",
-  authDomain: "redux-photo-app-ea6ce.firebaseapp.com",
-  // apiKey: process.env.REACT_APP_FIREBASE_API,
-  // authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  // apiKey: "AIzaSyB3FtOQKw_OKjif72Qla2IsG9nek1O71PI",
+  // authDomain: "redux-photo-app-ea6ce.firebaseapp.com",
+  apiKey: process.env.REACT_APP_FIREBASE_API,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  // apiKey: "AIzaSyDOCAbC123dEf456GhI789jKl01-MnO",
+  // authDomain: "myapp-project-123.firebaseapp.com",
 };
 
 firebase.initializeApp(config);
@@ -36,6 +38,7 @@ function App() {
           _limit: 10,
 
         };
+        console.log(123);
         const response = await productApi.getAll(params);
         console.log(response);
         setProductList(response.data);
@@ -66,10 +69,21 @@ function App() {
         console.log('Failed to login ', error.message);
         // show toast error
       }
+
     });
 
     return () => unregisterAuthObserver();
   }, []);
+
+  const handleLogout = () => {
+    firebase.auth().signOut().then((data) => {
+      // Sign-out successful.
+      console.log("Sign-out successful", data);
+    }, function (error) {
+      // An error happened.
+      console.log("An error happened");
+    });
+  };
 
   const handleButtonClick = async () => {
     try {
@@ -88,6 +102,7 @@ function App() {
 
   return (
     <div className="photo-app">
+      <button onClick={handleLogout}>Logout</button>
       <Suspense fallback={<div>Loading ...</div>}>
         <BrowserRouter>
           <Header />
