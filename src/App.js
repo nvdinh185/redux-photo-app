@@ -38,7 +38,6 @@ function App() {
           _limit: 10,
 
         };
-        console.log(123);
         const response = await productApi.getAll(params);
         console.log(response);
         setProductList(response.data);
@@ -78,6 +77,7 @@ function App() {
   const handleLogout = () => {
     firebase.auth().signOut().then((data) => {
       // Sign-out successful.
+      localStorage.removeItem('firebaseui::rememberedAccounts');
       console.log("Sign-out successful", data);
     }, function (error) {
       // An error happened.

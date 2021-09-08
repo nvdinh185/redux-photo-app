@@ -28,7 +28,7 @@ const getFirebaseToken = async () => {
         resolve(token);
       } else {
         console.log('Not Login!');
-        resolve();
+        reject(null);
       }
 
 
@@ -49,9 +49,14 @@ const axiosClient = axios.create({
 });
 
 axiosClient.interceptors.request.use(async (config) => {
-  const token = await getFirebaseToken();
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+  try {
+    const token = await getFirebaseToken();
+    // console.log("token: ", token);
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+  } catch (err) {
+    console.log("Lỗi: ", err);
   }
 
   return config;

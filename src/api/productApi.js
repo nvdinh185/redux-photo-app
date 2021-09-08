@@ -2,7 +2,7 @@ import axiosClient from "./axiosClient";
 
 const productApi = {
   getAll: (params) => {
-    const url = '/products';//'https://js-post-api.herokuapp.com/api/products';
+    const url = '/products';
     return axiosClient.get(url, { params });
   },
 
