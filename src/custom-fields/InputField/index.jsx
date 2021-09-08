@@ -18,7 +18,7 @@ InputField.defaultProps = {
   label: '',
   placeholder: '',
   disabled: false,
-}
+};
 
 function InputField(props) {
   const {

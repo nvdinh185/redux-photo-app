@@ -9,7 +9,7 @@ import './styles.scss';
 
 AddEditPage.propTypes = {};
 
-function AddEditPage(props) {
+function AddEditPage() {
   const dispatch = useDispatch();
   const history = useHistory();
   const { photoId } = useParams();
