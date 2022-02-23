@@ -8,8 +8,13 @@ class UserHandler {
     }
 
     testGet(req, res, next) {
-        res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
-        res.end(JSON.stringify({ status: "OK" }));
+        if (req.user) {
+            res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+            res.end(JSON.stringify({ status: "OK", results: req.user }));
+        } else {
+            res.writeHead(400, { 'Content-Type': 'application/json; charset=utf-8' });
+            res.end(JSON.stringify({ status: "NOK", error: req.error }));
+        }
     }
 }
 

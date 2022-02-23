@@ -1,11 +1,12 @@
-import Banner from 'components/Banner';
-import PhotoForm from 'features/Photo/components/PhotoForm';
-import { addPhoto, updatePhoto } from 'features/Photo/photoSlice';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
+
+import './AddEdit.scss';
+import Banner from 'components/Banner';
+import PhotoForm from 'features/Photo/components/PhotoForm';
+import { addPhoto, updatePhoto } from 'features/Photo/photoSlice';
 import { randomNumber } from 'utils/common';
-import './styles.scss';
 
 AddEditPage.propTypes = {};
 

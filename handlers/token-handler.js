@@ -9,19 +9,16 @@ const pass_sign_token = 'nvdinh_09092021';
  * @param {*} req 
  * @param {*} expires 
  */
-const sign = (req, expires) => {
-
-  const timeSign = Date.now();
+const sign = (req, expires = 60000) => { // default 1 phút
 
   const token = jwt.sign({
     email: req.json_data.email,
     password: req.json_data.password,
-    time_sign: timeSign
   },
-    pass_sign_token + timeSign
+    pass_sign_token
     ,
     {
-      expiresIn: expires ? expires : 60000 // default 1 phút
+      expiresIn: expires
     }
   );
 
@@ -37,14 +34,8 @@ class TokenHandler {
    * @param {*} next 
    */
   verify(req, res, next) {
-    let userToken;
-    try {
-      userToken = jwt.decode(req.token);
-    } catch (e) { }
-    // console.log("userToken: ", userToken);
-    let timeSign = userToken.time_sign;
     //xác thực token truyền lên:
-    jwt.verify(req.token, pass_sign_token + timeSign,
+    jwt.verify(req.token, pass_sign_token,
       (err, decoded) => {
         if (err) {
           console.log('Lỗi xác thực:', err.message);
@@ -91,4 +82,4 @@ class TokenHandler {
   }
 }
 
-module.exports = new TokenHandler()
+module.exports = new TokenHandler();

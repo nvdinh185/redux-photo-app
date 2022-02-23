@@ -1,11 +1,12 @@
-import Banner from 'components/Banner';
-import Images from 'constants/images';
-import PhotoList from 'features/Photo/components/PhotoList';
-import { removePhoto } from 'features/Photo/photoSlice';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { Container } from 'reactstrap';
+
+import Banner from 'components/Banner';
+import Images from 'constants/images';
+import PhotoList from 'features/Photo/components/PhotoList';
+import { removePhoto } from 'features/Photo/photoSlice';
 
 MainPage.propTypes = {};
 
