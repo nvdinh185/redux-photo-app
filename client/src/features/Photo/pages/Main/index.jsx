@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { Container } from 'reactstrap';
@@ -16,6 +16,10 @@ function MainPage() {
   const history = useHistory();
   // console.log('List of photos: ', photos);
 
+  useEffect(() => {
+    console.log(photos);
+  });
+
   const handlePhotoEditClick = (photo) => {
     console.log('Edit: ', photo);
     const editPhotoUrl = `/photos/${photo.id}`;
@@ -30,7 +34,7 @@ function MainPage() {
   }
 
   return (
-    <div className="photo-main">
+    <div>
       <Banner title="🎉 Your awesome photos 🎉" backgroundUrl={Images.PINK_BG} />
 
       <Container className="text-center">
