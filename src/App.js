@@ -3,7 +3,7 @@ import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 
 import NotFound from './components/NotFound';
 
-const Photo = React.lazy(() => import('./features/Photo'));
+const Photo = React.lazy(() => import('./features'));
 
 function App() {
 

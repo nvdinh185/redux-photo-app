@@ -5,8 +5,8 @@ import { Container } from 'reactstrap';
 
 import Banner from 'components/Banner';
 import Images from 'constants/images';
-import PhotoList from 'features/Photo/components/PhotoList';
-import { removePhoto } from 'features/Photo/photoSlice';
+import PhotoList from 'features/components/PhotoList';
+import { removePhoto } from 'features/photoSlice';
 
 MainPage.propTypes = {};
 
